@@ -8,15 +8,17 @@ import {
   Person as PersonIcon,
 } from "@mui/icons-material";
 import moment from "moment";
-import { SearchField, CurveButton } from "../../components/styles/StyledComponents";
+import {
+  SearchField,
+  CurveButton,
+} from "../../components/styles/StyledComponents";
 import { DoughnutChart, LineChart } from "../../components/specifics/Chart";
 
 const Dashboard = () => {
   const Appbar = (
     <Paper
       elevation={3}
-      sx={{ padding: "2rem", margin: "2rem 0", borderRadius: "1rem" }}
-    >
+      sx={{ padding: "2rem", margin: "2rem 0", borderRadius: "1rem" }}>
       <Stack direction={"row"} alignItems={"center"} spacing={"1rem"}>
         <AdminPanelSettingsIcon sx={{ fontSize: "3rem" }} />
         <SearchField />
@@ -26,8 +28,7 @@ const Dashboard = () => {
         <Typography
           display={{ xs: "none", lg: "block" }}
           color={"rgba(0,0,0,0.7)"}
-          textAlign={"center"}
-        >
+          textAlign={"center"}>
           {moment().format("dddd,  DD MMMM YYYY")}
         </Typography>
       </Stack>
@@ -40,11 +41,10 @@ const Dashboard = () => {
       spacing={"2rem"}
       justifyContent={"space-between"}
       alignItems={"center"}
-      margin={"2rem 0"}
-    >
-      <Widget title={"Users"} value={34} icon={<PersonIcon/>}/>
-      <Widget title={"Chats"} value={3} icon={<GroupIcon/>}/>
-      <Widget title={"Messages"} value={454} icon={<Chat/>}/>
+      margin={"2rem 0"}>
+      <Widget title={"Users"} value={34} icon={<PersonIcon />} />
+      <Widget title={"Chats"} value={3} icon={<GroupIcon />} />
+      <Widget title={"Messages"} value={454} icon={<Chat />} />
     </Stack>
   );
 
@@ -52,20 +52,24 @@ const Dashboard = () => {
     <AdminLayout>
       <Container component={"main"}>
         {Appbar}
-        <Stack direction={"column"} spacing={"2rem"} flexWrap={"wrap"} justifyContent={"center"} alignItems={"center"}>
+        <Stack
+          direction={"row"}
+          gap={"2rem"}
+          flexWrap={"wrap"}
+          justifyContent={"center"}
+          alignItems={"center"}>
           <Paper
             elevation={3}
             sx={{
               padding: "2rem 3rem",
               borderRadius: "1rem",
               width: "100%",
-              maxWidth: "45rem",
-            }}
-          >
+              maxWidth: "36rem",
+            }}>
             <Typography margin={"2rem 0"} variant={"h5"}>
               Last Messages
             </Typography>
-            <LineChart value={[12,69,35,26,53,36,78]}/>
+            <LineChart value={[12, 69, 35, 26, 53, 36, 78]} />
           </Paper>
 
           <Paper
@@ -77,12 +81,14 @@ const Dashboard = () => {
               justifyContent: "center",
               alignItems: "center",
               width: { xs: "100%", sm: "50%" },
-              maxWidth: "25rem",
+              maxWidth: "24rem",
               position: "relative",
               height: "25rem",
-            }}
-          >
-            <DoughnutChart value={[23,66]} labels={["Single Chats", "Group Chats"]}/>
+            }}>
+            <DoughnutChart
+              value={[23, 66]}
+              labels={["Single Chats", "Group Chats"]}
+            />
 
             <Stack
               sx={{
@@ -93,8 +99,7 @@ const Dashboard = () => {
                 spacing: "0.5rem",
                 width: "100%",
                 height: "100%",
-              }}
-            >
+              }}>
               <GroupIcon />
               <Typography>Vs</Typography>
               <PersonIcon />
@@ -120,10 +125,9 @@ const Widget = ({ title, value, icon }) => {
         width: { xs: "100%", sm: "calc(33% - 1rem)" },
         minWidth: "200px",
         textAlign: "center",
-      }}
-    >
+      }}>
       <Stack spacing={"0.5rem"} alignItems={"center"}>
-      {icon}
+        {icon}
         <Typography variant={"h6"}>{title}</Typography>
         <Typography variant={"h4"}>{value}</Typography>
       </Stack>
